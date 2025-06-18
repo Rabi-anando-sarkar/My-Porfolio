@@ -139,7 +139,56 @@ html {
   padding-left: 2rem;
 }
 
-.bar p {
-  font-size: 1.1rem;
-  letter-spacing: 4px;
+/* ABOUT PANEL */
+
+.about-container {
+  width: 50rem;
+  height: 31rem;
+  /*backdrop-filter: blur(1px);
+  */border: 2px solid var(#2D3030);
+  border-radius: 2rem;
+  -webkit-border-radius: 2rem;
+  -moz-border-radius: 2rem;
+  -ms-border-radius: 2rem;
+  -o-border-radius: 2rem;
 }
+
+.about-bar {
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 2rem 2rem 0 0;
+  background-color: #ffffffb3;
+  -webkit-border-radius: 2rem 2rem 0 0;
+  -moz-border-radius: 2rem 2rem 0 0;
+  -ms-border-radius: 2rem 2rem 0 0;
+  -o-border-radius: 2rem 2rem 0 0;
+  padding: 0 2rem;
+}
+
+.about-scroll {
+  height: calc(100% - 6rem);
+  overflow-y: auto;
+  padding-right: 16px; /* room for scrollbar */
+  box-sizing: content-box;
+}
+
+/* Make the scrollbar *very thin* and subtle */
+.about-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Transparent track (invisible but doesn't clash visually) */
+.about-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Subtle thumb that blends but still visible */
+.about-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 1rem;
+}
+
+
