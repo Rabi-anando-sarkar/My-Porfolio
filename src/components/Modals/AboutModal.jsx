@@ -33,7 +33,7 @@ const AboutModal = ({ isOpen, onClose, zIndex }) => {
         <div className='about-scroll'>
           <div className='image-and-desc h-[12rem] flex items-center gap-20 pl-20 pr-8'>
             <img
-              src="/My-Porfolio/images/demo.jpg"
+              src="/images/demo.jpg"
               alt="Rabi Anando Sarkar"
               className="w-36 h-36 rounded-full object-cover"
             />
