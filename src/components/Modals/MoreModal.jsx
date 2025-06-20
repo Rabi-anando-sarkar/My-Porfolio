@@ -39,7 +39,7 @@ const MoreModal = ({ isOpen, onClose, zIndex }) => {
             (The PDF kind, not the boring kind.)</p>
           <div className="mt-4 text-center">
             <a
-              href="https://drive.google.com/your_resume_link"
+              href="https://drive.google.com/file/d/1XpPxfYFUXDqzgznoLQp_paWYIxD2kLGv/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-purple-300 mt-2 dark:text-black font-jetB px-4 py-2 rounded"

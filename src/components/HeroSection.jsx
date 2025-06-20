@@ -57,8 +57,8 @@ const HeroSection = () => {
                 <li key={label} className="flex flex-col items-center">
                   <button onClick={() => openPanel(tab.label)}
                     className="flex flex-col items-center focus:outline-none">
-                    <tab.icon className="w-16 h-16 text-black dark:text-white" />
-                    <p className="font-jetB tracking-wide text-base mt-1 text-black dark:text-white">
+                    <tab.icon className="w-16 h-16 text-purple-400 dark:text-purple-500" />
+                    <p className="font-jetB tracking-wide text-base mt-1 text-purple-400 dark:text-purple-500">
                       {tab.label}
                     </p>
                   </button>

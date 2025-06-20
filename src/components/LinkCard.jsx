@@ -10,7 +10,7 @@ const LinkCard = () => {
                         <div className="sub-card-container">
                             <div className="links-items">
                                 <item.icon className="text-2xl font-jetB text-black dark:text-white"/>
-                                <a className="text-md font-jetB text-black dark:text-white" href={item.link} target="_blank">{item.label}</a>
+                                <a className="text-md font-jetB text-black dark:text-white" href={item.link} rel="noopener noreferrer" target="_blank">{item.label}</a>
                             </div>
                         </div>
                     </div>

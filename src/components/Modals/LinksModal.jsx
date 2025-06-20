@@ -35,7 +35,7 @@ const LinksModal = ({ isOpen, onClose, zIndex }) => {
           <LinkCard />
         </div>
         <div className='pl-8 pr-8 pt-6 flex items-center justify-center'>
-          <p className='text-black dark:text-white border border-solid p-3 rounded-md'>These links will open in the new tab!</p>
+          <p className='text-black dark:text-white p-3'>These links will open in the new tab!</p>
         </div>
       </div>
     </Draggable>
