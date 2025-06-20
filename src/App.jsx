@@ -34,7 +34,7 @@ function App() {
         <HeroSection />
       </div>
       <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-black dark:text-white text-sm">
-        @2025 Rabi Anando Sarkar
+        @2025 Rabi Anando Sarkar || Optimized for Desktop (use dextop mode) • Mobile improvements coming soon
       </div>
     </>
   )

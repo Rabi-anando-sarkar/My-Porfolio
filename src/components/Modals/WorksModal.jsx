@@ -48,8 +48,8 @@ const WorksModal = ({ isOpen, onClose, zIndex }) => {
               <h2 className='text-black dark:text-white font-jetB text-xl'>Image Manipulation App</h2>
               <p className='text-black dark:text-white font-jetB text-sm'>I needed to batch-convert image formats under a tight deadline. Free tools weren't enough, so I built my own API using Node.js and Sharp. Along the way, I explored image uploads, Cloudinary, and learned how to handle file processing securely.</p>
               <div className="flex gap-6 mt-4">
-                <a className="text-blue-400" href="#">View on GitHub</a>
-                <a className="text-orange-400" href="#">Postman Docs</a>
+                <a className="text-blue-400" href="https://github.com/Rabi-anando-sarkar/image-manipulation"  rel="noopener noreferrer" target="_blank">View on GitHub</a>
+                <a className="text-orange-400" href="#"  rel="noopener noreferrer" target="_blank">Postman Docs</a>
               </div>
             </div>
           </div>
@@ -58,8 +58,8 @@ const WorksModal = ({ isOpen, onClose, zIndex }) => {
               <h2 className='text-black dark:text-white font-jetB text-xl'>GitHub Repo2Pdf</h2>
               <p className='text-black dark:text-white font-jetB text-sm'>Used Puppeteer and APIs to extract content from URLs and turn it into clean PDFs — paste a link, and it's done. Handled multiple files, stored them on Cloudinary, and saved the access links in MongoDB for easy retrieval.</p>
               <div className="flex gap-6 mt-4">
-                <a className="text-blue-400" href="#">View on GitHub</a>
-                <a className="text-orange-400" href="#">Postman Docs</a>
+                <a className="text-blue-400" href="https://github.com/Rabi-anando-sarkar/gitRepoToPDF" rel="noopener noreferrer" target="_blank">View on GitHub</a>
+                <a className="text-orange-400" href="#" rel="noopener noreferrer">Postman Docs</a>
               </div>
             </div>
           </div>
@@ -68,8 +68,8 @@ const WorksModal = ({ isOpen, onClose, zIndex }) => {
               <h2 className='text-black dark:text-white font-jetB text-xl'>Protfolio</h2>
               <p className='text-black dark:text-white font-jetB text-sm'>A personal portfolio built from scratch with a custom theme inspired by window-style glassmorphism and draggable UI, taking inspiration from Sheryians' unique design style. The layout mimics an OS-like experience with interactive, movable components.</p>
               <div className="flex gap-6 mt-4">
-                <a className="text-blue-400" href="#">View on GitHub</a>
-                <a className="text-purple-400" href="#">Live Site? You are here!</a>
+                {/* <a className="text-blue-400" href="#" rel="noopener noreferrer" target="_blank">View on GitHub</a> */}
+                <a className="text-purple-400" href="#"  rel="noopener noreferrer" target="_blank">Live Site? You are here!</a>
               </div>
             </div>
           </div>
