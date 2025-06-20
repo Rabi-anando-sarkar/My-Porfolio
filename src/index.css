@@ -3,13 +3,6 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Space Mono';
-  src: url('./assets/fonts/Space_Mono/SpaceMono-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
   font-family: 'Jett Brains';
   src: url('./assets/fonts/JetBrains_Mono/JetBrainsMono-VariableFont_wght.ttf') format('truetype');
   font-weight: normal;
@@ -17,35 +10,85 @@
 }
 
 :root {
-  /* Dark (default) theme */
-  --bg: #121212;
-  --dot: #e0e0e041;
-  --blend: screen;
-  --glow: rgba(180, 0, 255, 0.12);
+  /* Background Dark theme */
+  --g-bg: rgb(18, 18, 18);
+  --g-dot-pattern: rgba(224, 224, 224, 0.255);
+  --g-blend-mode: screen;
+  --g-glow-effect: rgba(180, 0, 255, 0.12);
 
-  --content-bg: rgba(255, 255, 255, 0.09);
-  --border-color: rgba(255, 255, 255, 0.5);
-  --bar-bg: #ffffffb3;
-  --text-color: #ffffff;
+  /* === Component 1 — Dark Theme === */
+  --c1-surface: rgba(255, 255, 255, 0.09);
+  --c1-border: rgba(255, 255, 255, 0.5);
+  --c1-bar-bg: rgba(255, 255, 255, 0.702);
+
+   /* === Component 2 — Dark Theme === */
+  --c2-surface: rgb(39, 39, 39);
+  --c2-border: rgba(255, 255, 255, 0.702);
+  --c2-bar-bg: rgba(255, 255, 255, 0.702);
+
+  /* === ScrollBar === */
+
+  --c2-scrollbar-track: rgba(255, 255, 255, 0.05);
+
+  --l-background-main: rgba(21, 21, 21, 0.89);
+  --l-grid-dot: rgba(84, 7, 156, 0.8);
+  --l-grid-glow: rgba(84, 7, 156, 0.6);
+  --l-link-bg: rgba(22, 22, 22, 0.989);
+  --l-link-border: rgb(192, 132, 252);
+
+  /* Tabs */
+
+  --tab-bg: rgba(192, 132, 252, 0.518);
+  --tab-h-bg: rgba(196, 196, 196, 0.329);
+  --tab-w-bg: rgba(196, 196, 196, 0.329);
+
+  /* hover shadow */ 
+
+  --hover-wrapper: rgba(189, 33, 255, 0.801);
 }
 
 /* Light theme override */
 html.light {
-  --bg: #f9f9f9;
-  --dot: #222222;
-  --blend: multiply;
-  --glow: rgba(115, 0, 191, 0.363);
+  /* Background Light theme */
+  --g-bg: rgb(249, 249, 249);
+  --g-dot-pattern: rgb(34, 34, 34);
+  --g-blend-mode: multiply;
+  --g-glow-effect: rgba(115, 0, 191, 0.363);
+  
+  /* === Component 1 — Light Theme === */
+  --c1-surface: rgba(255, 255, 255, 0.7);
+  --c1-border: rgba(0, 0, 0, 0.3);
+  --c1-bar-bg: rgba(0, 0, 0, 0.302);
 
-  --content-bg: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(0, 0, 0, 0.3);
-  --bar-bg: #0000004d;
-  --text-color: #000000;
+   /* === Component 2 — Light Theme === */
+  --c2-surface: rgb(236, 236, 236);
+  --c2-border: rgba(123, 123, 123, 0.7);
+  --c2-bar-bg: rgba(123, 123, 123, 0.7);
+
+  --c2-scrollbar-track: rgba(0, 0, 0, 0.3);
+
+  --l-background-main: rgba(129, 129, 129, 0.522);
+  --l-grid-dot: rgba(84, 7, 156, 0.93);
+  --l-grid-glow: rgba(84, 7, 156, 0.6);
+  --l-link-bg: rgba(255, 255, 255, 0.09);
+  --l-link-border: rgb(192, 132, 252);
+
+  /* Tabs */
+
+  --tab-bg: rgba(192, 132, 252, 0.518); 
+  --tab-h-bg: rgba(196, 196, 196, 0.329);
+  --tab-w-bg: rgba(196, 196, 196, 0.527);
+
+  /* hover shadow */
+
+  --hover-wrapper: rgba(189, 33, 255, 0.801);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  user-select: none;
 }
 
 html {
@@ -53,20 +96,15 @@ html {
 }
 
 .main-background {
-
   display: grid;
   place-items: center;
-
-  margin: 0;
-  padding: 0;
   height: 100vh;
   width: 100vw;
   position: relative;
   overflow: hidden;
-  background-color: var(--bg);
-  background-image:    radial-gradient(circle at 0.0625rem 0.0625rem, var(--dot) 0.0625rem, transparent 0);
+  background-color: var(--g-bg);
+  background-image: radial-gradient(circle at 0.0625rem 0.0625rem, var(--g-dot-pattern) 0.0625rem, transparent 0);
   background-size: 2rem 2rem;
-  
   transition: background-color 0.1s ease-in, background-image 0.1s ease-out;
   -webkit-transition: background-color 0.1s ease-in, background-image 0.1s ease-out;
   -moz-transition: background-color 0.1s ease-in, background-image 0.1s ease-out;
@@ -75,7 +113,7 @@ html {
 }
 
 .subtle-fire {
-  mix-blend-mode: var(--blend);
+  mix-blend-mode: var(--g-blend-mode);
   position: absolute;
   bottom: 0;
   width: 100vw;
@@ -84,13 +122,11 @@ html {
   animation: flicker 5s infinite ease-in-out;
   filter: blur(10px) brightness(1.2);
   opacity: 0.7;
-  background:
-    radial-gradient(ellipse at 20% 100%, var(--glow) 0%, transparent 70%),
-    radial-gradient(ellipse at 50% 100%, var(--glow) 0%, transparent 80%),
-    radial-gradient(ellipse at 80% 100%, var(--glow) 0%, transparent 70%);
+  background:    radial-gradient(ellipse at 20% 100%, var(--g-glow-effect) 0%, transparent 70%),    radial-gradient(ellipse at 50% 100%, var(--g-glow-effect) 0%, transparent 80%),    radial-gradient(ellipse at 80% 100%, var(--g-glow-effect) 0%, transparent 70%);
   background-repeat: no-repeat;
   background-size: cover;
   -webkit-animation: flicker 5s infinite ease-in-out;
+  -webkit-filter: blur(10px) brightness(1.2);
 }
 
 @keyframes flicker {
@@ -107,17 +143,19 @@ html {
   100% { opacity: 0.5; transform: translateX(0) scaleX(1); }
 }
 
+/** C O M P O N E N T - 1 **/
+
 .content {
-  width: 750px;
-  height: 450px;
-  background: var(--content-bg);
+  width: 47rem;
+  height: 30rem;
+  background: var(--c1-surface);
   backdrop-filter: blur(1px);
-  border: 1px solid var(--border-color);
-  border-radius: 2rem;
-  -webkit-border-radius: 2rem;
-  -moz-border-radius: 2rem;
-  -ms-border-radius: 2rem;
-  -o-border-radius: 2rem;
+  border: 1px solid var(--c1-border);
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
 }
 
 .content-body {
@@ -130,27 +168,27 @@ html {
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  border-radius: 2rem 2rem 0 0;
-  background-color: var(--bar-bg);
-  -webkit-border-radius: 2rem 2rem 0 0;
-  -moz-border-radius: 2rem 2rem 0 0;
-  -ms-border-radius: 2rem 2rem 0 0;
-  -o-border-radius: 2rem 2rem 0 0;
+  border-radius: 1rem 1rem 0 0;
+  background-color: var(--c1-bar-bg);
+  -webkit-border-radius: 1rem 1rem 0 0;
+  -moz-border-radius: 1rem 1rem 0 0;
+  -ms-border-radius: 1rem 1rem 0 0;
+  -o-border-radius: 1rem 1rem 0 0;
   padding-left: 2rem;
 }
 
-/* ABOUT PANEL */
+/** ABOUT PANEL **/
 
 .about-container {
   width: 50rem;
   height: 31rem;
-  /*backdrop-filter: blur(1px);
-  */border: 2px solid var(#2D3030);
-  border-radius: 2rem;
-  -webkit-border-radius: 2rem;
-  -moz-border-radius: 2rem;
-  -ms-border-radius: 2rem;
-  -o-border-radius: 2rem;
+  background: var(--c2-surface);
+  border: 1px solid var(--c2-border);
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
 }
 
 .about-bar {
@@ -159,17 +197,17 @@ html {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border-radius: 2rem 2rem 0 0;
-  background-color: #ffffffb3;
-  -webkit-border-radius: 2rem 2rem 0 0;
-  -moz-border-radius: 2rem 2rem 0 0;
-  -ms-border-radius: 2rem 2rem 0 0;
-  -o-border-radius: 2rem 2rem 0 0;
+  border-radius: 1rem 1rem 0 0;
+  background-color: var(--c2-bar-bg);
+  -webkit-border-radius: 1rem 1rem 0 0;
+  -moz-border-radius: 1rem 1rem 0 0;
+  -ms-border-radius: 1rem 1rem 0 0;
+  -o-border-radius: 1rem 1rem 0 0;
   padding: 0 2rem;
 }
 
 .about-scroll {
-  height: calc(100% - 6rem);
+  height: calc(100% - 5rem);
   overflow-y: auto;
   padding-right: 16px; /* room for scrollbar */
   box-sizing: content-box;
@@ -177,7 +215,7 @@ html {
 
 /* Make the scrollbar *very thin* and subtle */
 .about-scroll::-webkit-scrollbar {
-  width: 4px;
+  width: 0.5rem;
 }
 
 /* Transparent track (invisible but doesn't clash visually) */
@@ -187,8 +225,233 @@ html {
 
 /* Subtle thumb that blends but still visible */
 .about-scroll::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: var(--c2-scrollbar-track);
   border-radius: 1rem;
 }
 
+/** LINK PANEL **/
 
+.link-container {
+  width: 42rem;
+  height: 37.5rem;
+  background: var(--c2-surface);
+  border: 1px solid var(--c2-border);
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+.link-bar {
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 1rem 1rem 0 0;
+  background-color: var(--c2-bar-bg);
+  -webkit-border-radius: 1rem 1rem 0 0;
+  -moz-border-radius: 1rem 1rem 0 0;
+  -ms-border-radius: 1rem 1rem 0 0;
+  -o-border-radius: 1rem 1rem 0 0;
+  padding: 0 2rem;
+}
+
+.cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 2rem 2rem 0 2rem;
+}
+
+.main-card-container {
+  background-color: var(--l-background-main);
+  position: relative;
+  padding: 5rem;
+  border-radius: 1rem;
+  background-image: radial-gradient(var(--l-grid-dot) 1px, transparent 1px);
+  background-size: 2.1rem 2.1rem;
+
+  overflow: hidden;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+.sub-card-container {
+  display: grid;
+  place-items: center;
+}
+
+.links-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--l-background-main);
+  padding: 0.6rem;
+  /* border: 1px solid var(--l-link-border); */
+  background: var(--l-link-bg);
+  backdrop-filter: blur(30px);
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+/** WORK PANEL **/
+
+.work-container {
+  width: 62rem;
+  height: 26rem;
+  background: var(--c2-surface);
+  border: 1px solid var(--c2-border);
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+.work-bar {
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 1rem 1rem 0 0;
+  background-color: var(--c2-bar-bg);
+  -webkit-border-radius: 1rem 1rem 0 0;
+  -moz-border-radius: 1rem 1rem 0 0;
+  -ms-border-radius: 1rem 1rem 0 0;
+  -o-border-radius: 1rem 1rem 0 0;
+  padding: 0 2rem;
+}
+
+.tab-area {
+  padding: 2rem 2rem;
+}
+
+.tabs {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding-left: 0.5rem;
+}
+
+.tab {
+  background-color: var(--tab-bg); 
+  padding: 0.4rem 1rem;
+  border-radius: 4rem;
+  -webkit-border-radius: 4rem;
+  -moz-border-radius: 4rem;
+  -ms-border-radius: 4rem;
+  -o-border-radius: 4rem;
+}
+
+.tab:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 1px 1px var(--hover-wrapper);
+}
+
+.tab.active {
+  background-color: var(--tab-h-bg);
+  border-radius: 2rem;
+  -webkit-border-radius: 2rem;
+  -moz-border-radius: 2rem;
+  -ms-border-radius: 2rem;
+  -o-border-radius: 2rem;
+}
+
+
+.tab-wrapper {
+  margin-top: 2rem;
+  width: 58rem;
+  padding: 2rem 3rem;
+  background-color: var(--tab-w-bg);
+  border-radius: 2rem;
+  -webkit-border-radius: 2rem;
+  -moz-border-radius: 2rem;
+  -ms-border-radius: 2rem;
+  -o-border-radius: 2rem;
+}
+
+.tab-wrapper:hover {
+  box-shadow: 5px 5px 4px -1px var(--hover-wrapper);
+}
+
+.tab-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/** CONTACT PANEL **/
+
+.contact-container {
+  width: 40rem;
+  height: 30rem;
+  background: var(--c2-surface);
+  border: 1px solid var(--c2-border);
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+.contact-bar {
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 1rem 1rem 0 0;
+  background-color: var(--c2-bar-bg);
+  -webkit-border-radius: 1rem 1rem 0 0;
+  -moz-border-radius: 1rem 1rem 0 0;
+  -ms-border-radius: 1rem 1rem 0 0;
+  -o-border-radius: 1rem 1rem 0 0;
+  padding: 0 2rem;
+}
+
+.contact-body {
+  padding: 2rem;
+}
+
+/** MORE PANEL **/
+
+.more-container {
+  width: 40rem;
+  height: 20rem;
+  background: var(--c2-surface);
+  border: 1px solid var(--c2-border);
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+.more-bar {
+  height: 3rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 1rem 1rem 0 0;
+  background-color: var(--c2-bar-bg);
+  -webkit-border-radius: 1rem 1rem 0 0;
+  -moz-border-radius: 1rem 1rem 0 0;
+  -ms-border-radius: 1rem 1rem 0 0;
+  -o-border-radius: 1rem 1rem 0 0;
+  padding: 0 2rem;
+}
+
+.more-body {
+  padding: 2rem;
+}

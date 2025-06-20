@@ -3,7 +3,7 @@ import Draggable from 'react-draggable'
 
 const DraggablePanel = ({ content, label, onClose }) => {
   return (
-     <Draggable handle=".handle">
+    <Draggable handle=".handle">
       <div className="fixed top-20 left-20 bg-white shadow-lg border rounded w-[300px] z-50">
         <div className="handle cursor-move bg-gray-100 p-2 font-bold flex justify-between items-center">
           {label}
